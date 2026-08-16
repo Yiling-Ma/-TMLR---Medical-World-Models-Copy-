@@ -1,0 +1,14 @@
+\section{Search and Study-Selection Protocol}
+\label{app:protocol}
+
+The evidence map was designed as an ML-oriented review rather than a PRISMA-style review of clinical interventions. Retrieval combined structured searches of scholarly indexes and publisher metadata with citation expansion from papers that used terms including ``medical world model'', ``clinical world model'', ``patient world model'', ``digital twin'', ``patient trajectory'', ``treatment planning'', ``counterfactual'', and ``simulation''. The broad boundary included papers that self-identified as world models, near-core work on longitudinal patient trajectories, patient-specific digital twins, treatment-aware disease simulation, surgical and physiological simulators, model-based clinical decision making, and foundational general-domain work needed to interpret the methodological lineage.
+
+Ordinary static diagnosis or prognosis studies were excluded unless they directly informed the representation boundary. Preprints and published versions were linked by persistent identifier, normalized title, and version provenance so that one canonical work contributed at most once to quantitative summaries. Contextual reviews, perspectives, and general-domain anchors were retained for interpretation but were not combined with implemented clinical systems in application-specific denominators.
+
+The selection strategy is intentionally broader than the operational definition. Broad retrieval makes terminology drift visible; the capability and existence rules prevent that breadth from being interpreted as evidence that every retrieved paper implements a world model. Records without sufficient full-text evidence for capability adjudication were retained as unresolved but excluded from primary capability and application distributions.
+
+\subsection{Screening Boundary}
+
+Core papers explicitly identify as medical or clinical world models or directly implement state-transition simulation in a clinical domain. Near-core papers include EHR trajectory models, patient-specific digital twins, treatment-aware progression models, causal longitudinal outcome models, model-based clinical decision systems, and surgical or physiological simulators. Background papers are included only when they define concepts used to interpret the core literature. A static predictor can appear as boundary evidence but is not counted as an implemented transition model unless a directed future is present.
+
+\input{table_review_positioning.tex}

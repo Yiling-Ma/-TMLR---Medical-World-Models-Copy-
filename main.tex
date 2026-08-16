@@ -1,0 +1,114 @@
+\documentclass[10pt]{article}
+\usepackage{tmlr}
+
+\input{math_commands.tex}
+\input{audit_numbers.tex}
+
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{fontawesome5}
+\usepackage{placeins}
+\renewcommand{\topfraction}{0.92}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.7}
+\setcounter{topnumber}{3}
+\setcounter{totalnumber}{5}
+\usetikzlibrary{arrows.meta,positioning,calc,decorations.pathmorphing,shadows.blur,fit,backgrounds}
+
+\definecolor{mwmink}{HTML}{1A2A3A}
+\definecolor{mwmblue}{HTML}{0072B2}
+\definecolor{mwmteal}{HTML}{009E73}
+\definecolor{mwmamber}{HTML}{E69F00}
+\definecolor{mwmvermillion}{HTML}{D55E00}
+\definecolor{mwmgray}{HTML}{6E7B8B}
+\definecolor{mwmlight}{HTML}{DDE3E8}
+\colorlet{mwmorange}{mwmamber}
+\colorlet{mwmred}{mwmvermillion}
+\colorlet{mwmgreen}{mwmteal}
+\colorlet{mwmyellow}{mwmamber}
+\tikzset{
+  hand/.style={decorate, decoration={random steps, segment length=1.8mm, amplitude=0.4pt}},
+  hbox/.style 2 args={hand, draw=#1, line width=1pt, rounded corners=2pt, fill=#2,
+    blur shadow={shadow blur steps=4, shadow xshift=0.4pt, shadow yshift=-0.5pt}},
+  harrow/.style={hand, -{Latex[length=2.0mm]}, line width=0.9pt},
+  hdash/.style={hand, -{Latex[length=2.0mm]}, line width=0.8pt, densely dashed},
+}
+\newcommand{\cgood}{\textcolor{mwmteal}{\faCheck}\,}
+\newcommand{\cpart}{\textcolor{mwmamber}{\faAdjust}\,}
+\newcommand{\cgap}{\textcolor{mwmgray}{\faMinus}\,}
+\newcommand{\mwmbar}[1]{\textcolor{mwmblue!72}{\rule{#1em}{1.05ex}}}
+
+\title{Medical World Models: From Static Prediction to Clinically Valid Action-Aware Simulation}
+\author{\name Anonymous Authors \email anonymous@example.com \\
+      \addr Anonymous Institution}
+
+\newcommand{\mwms}{medical world models}
+\newcommand{\state}{state}
+\newcommand{\action}{action}
+\newcommand{\transition}{transition}
+\newcommand{\outcome}{outcome}
+\newcommand{\satotext}{state--action--transition--outcome}
+\newenvironment{casebox}[1]{\par\smallskip\noindent\begin{minipage}{\linewidth}\hrule\vspace{0.55em}\textbf{Case study: #1}\par\smallskip\small}{\vspace{0.55em}\hrule\end{minipage}\par\smallskip}
+\newcommand{\levelsummary}[3]{%
+  \begin{center}
+  \fcolorbox{mwmteal!75!black}{mwmteal!5}{%
+    \begin{minipage}{0.94\linewidth}\small
+    \textbf{Established.} #1\par\smallskip
+    \textbf{Our assessment.} #2\par\smallskip
+    \textbf{Next threshold.} #3
+    \end{minipage}}
+  \end{center}}
+
+\newif\ifworkingdraft
+\workingdrafttrue
+
+\def\month{MM}
+\def\year{YYYY}
+\def\openreview{\url{https://openreview.net/forum?id=XXXX}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+World-model language now spans medical imaging, patient trajectories, digital twins, treatment simulation, clinical agents, and embodied systems, but the capabilities represented by that language differ substantially. Some systems encode a current state or forecast its evolution; others expose an action, compare alternative interventions, or use simulated futures to select a decision. This survey asks three related questions: what capability has been implemented, where has it been studied, and what evidence supports the resulting claim? We organize the literature by five non-cumulative capability levels and evaluate each level through a state--action--transition--outcome--validation (SATO-V) contract. Clinical application, model architecture, and data modality are treated as secondary lenses rather than competing taxonomies. This separation reveals recurring gaps between technical form and clinical interpretation. A treatment token does not by itself identify a treatment effect; a plausible future image need not represent patient dynamics; and model-based action selection can remain unreliable when transitions, rewards, or off-policy actions are weakly validated. The survey therefore locates progress not in generative realism alone, but in the alignment between an executable action, an action-sensitive transition, a decision-relevant outcome, and validation appropriate to the intended use. We use this framework to synthesize the current evidence, identify level-specific failure modes, and outline the methodological steps needed to move from predictive models toward clinically credible simulation and planning.
+\end{abstract}
+
+\ifworkingdraft
+  \clearpage
+  \tableofcontents
+  \clearpage
+\fi
+
+\input{sections/01_introduction.tex}
+\input{sections/02_background.tex}
+\input{sections/03_foundations.tex}
+\input{sections/03_framework.tex}
+\input{sections/04_level1.tex}
+\input{sections/05_level2.tex}
+\input{sections/06_level3.tex}
+\input{sections/07_level4.tex}
+\input{sections/08_level5.tex}
+\input{sections/09_synthesis.tex}
+\input{sections/10_agenda.tex}
+\input{sections/11_conclusion.tex}
+
+\bibliography{references}
+\bibliographystyle{tmlr}
+
+\appendix
+\input{sections/appendix_protocol.tex}
+\input{sections/appendix_coding.tex}
+\input{sections/appendix_boundaries.tex}
+\input{sections/appendix_database.tex}
+
+\end{document}

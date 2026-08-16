@@ -1,0 +1,51 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  x=1cm,y=1cm,
+  level/.style={circle,draw=mwmblue,line width=0.85pt,fill=mwmblue!8,minimum size=0.68cm,font=\bfseries\scriptsize},
+  satov/.style={circle,draw=mwmblue,line width=0.9pt,fill=mwmblue!7,minimum size=0.78cm,font=\bfseries\small},
+  link/.style={-{Latex[length=1.7mm]},draw=mwmgray,line width=0.75pt},
+]
+% Capability categories: equal columns and no connecting arrow because they are non-cumulative.
+\node[anchor=west,font=\bfseries\small,text=mwmink] at (0.15,5.15) {(a) Capability category: what task form is evidenced?};
+\foreach \x/\level/\question/\name in {
+  1.10/1/{What is present now?}/{state representation},
+  3.85/2/{What happens next?}/{future prediction},
+  6.60/3/{What follows an action?}/{action-conditioned},
+  9.35/4/{What if another action?}/{counterfactual},
+  12.10/5/{Which action to select?}/{planning/control}}
+  {
+    \node[level] at (\x,4.35) {\level};
+    \node[align=center,text width=2.35cm,font=\scriptsize] at (\x,3.55)
+      {\textbf{Level \level}\\[-1pt]\question\\[-1pt]\textcolor{mwmgray}{\name}};
+  }
+\node[anchor=east,font=\scriptsize,text=mwmgray] at (13.35,2.95)
+  {Categories locate task form; they do not certify readiness or form a cumulative staircase.};
+
+\draw[mwmlight,line width=0.9pt] (0.15,2.72) -- (13.35,2.72);
+\node[anchor=west,font=\bfseries\small,text=mwmink] at (0.15,2.45) {(b) SATO-V evidence record: what supports the claim?};
+
+\node[satov] (s) at (1.10,1.55) {S};
+\node[satov] (a) at (3.85,1.55) {A};
+\node[satov] (t) at (6.60,1.55) {T};
+\node[satov] (o) at (9.35,1.55) {O};
+\node[satov] (v) at (12.10,1.55) {V};
+\draw[link] (s) -- (a);
+\draw[link] (a) -- (t);
+\draw[link] (t) -- (o);
+\draw[link] (o) -- (v);
+
+\node[align=center,text width=2.25cm,font=\scriptsize] at (1.10,0.75) {State\\\textcolor{mwmgray}{representation}};
+\node[align=center,text width=2.25cm,font=\scriptsize] at (3.85,0.75) {Action\\\textcolor{mwmgray}{settable semantics}};
+\node[align=center,text width=2.25cm,font=\scriptsize] at (6.60,0.75) {Transition\\\textcolor{mwmgray}{action-dependent dynamics}};
+\node[align=center,text width=2.25cm,font=\scriptsize] at (9.35,0.75) {Outcome\\\textcolor{mwmgray}{decision target}};
+\node[align=center,text width=2.25cm,font=\scriptsize] at (12.10,0.75) {Validation\\\textcolor{mwmgray}{public evidence}};
+
+\node[rounded corners=2pt,draw=mwmamber!80,fill=mwmamber!8,
+      minimum width=8.2cm,minimum height=0.46cm,align=center,font=\scriptsize]
+  at (6.60,0.02)
+  {Paper claim = one capability category $\times$ five independently audited evidence components};
+\end{tikzpicture}
+\caption{The review's two analytical axes. \textbf{(a)} The non-cumulative capability levels record the implemented task form. \textbf{(b)} SATO-V records evidence for state, action, transition, outcome, and validation. A high-capability label does not imply complete SATO-V evidence.}
+\label{fig:audit}
+\end{figure}

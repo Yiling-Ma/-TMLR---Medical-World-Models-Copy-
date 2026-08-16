@@ -1,0 +1,28 @@
+\begin{table*}[t]
+\caption{Representative boundary cases spanning the existence gate and Level~1--5. Outside-scope examples are retained because branding or optimization language alone does not establish a patient or environment transition.}
+\label{tab:core-matrix}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3.0pt}
+\renewcommand{\arraystretch}{1.05}
+\begin{tabularx}{\textwidth}{@{}p{3.1cm}cp{2.4cm}p{3.6cm}Xp{1.1cm}@{}}
+\toprule
+\textbf{Paper} & \textbf{Level} & \textbf{Setting} & \textbf{Action contract} & \textbf{Transition contract} & \textbf{Code} \\
+\midrule
+CheXWorld: Exploring Image World Modeling for Radiograph Representation ... & 1 & medical imaging & Mask locations and image/domain transformation parameters are training conditions, ... & JEPA-style latent prediction across spatial context and image transformations; no future ... & \cgood yes \\
+Enhancing Amyloid PET Quantification: MRI-Guided Super-Resolution Using Latent ... & 1 & medical imaging & No settable clinical action enters the model. & An MRI-guided latent diffusion model reconstructs a higher-resolution PET image for ... & \cgood yes \\
+MRI Contrast Enhancement Kinetics World Model & 2 & medical imaging & Elapsed time is a query coordinate; contrast dose, agent, ... & A conditional generative model predicts contrast-enhanced MRI at arbitrary future time ... & \cgood yes \\
+Forecasting individualized progression of Alzheimer's disease using structural ... & 2 & longitudinal progression & No treatment, acquisition, or clinical action is supplied; target ... & A progress-map-guided GAN generates the same subject's MRI at one- and ... & \cgap no* \\
+SWoMo: Neuro-Symbolic World Model for Cataract Surgery Simulation & 3 & surgery/robotics & Explicit surgical tool-motion increments control tip position, orientation, articulation, ... & A rule-based Godot simulator advances geometry and tool-tissue interactions; a conditioned ... & \cgood yes \\
+Treatment-aware Diffusion Probabilistic Model for Longitudinal MRI Generation ... & 3 & longitudinal progression & A target future treatment type and day are supplied; ... & Treatment-day embeddings condition a diffusion and segmentation network to generate the ... & \cgap no* \\
+auton-survival: an Open-Source Package for Regression, Counterfactual Estimation, ... & 4 & treatment/causal & A treatment arm or exposure is supplied for counterfactual ... & The package fits treatment-specific survival functions and counterfactual survival regressors, with ... & \cgood yes \\
+Double Robust Representation Learning for Counterfactual Prediction & 4 & treatment/causal & A binary treatment assignment indexes the two potential-outcome heads. & Double-robust representation learning combines treatment-specific outcome models with entropy-balancing weights that ... & \cgood yes \\
+Agentifying Patient Dynamics within LLMs through Interacting with ... & 5 & treatment/causal & A settable 5-by-5 grid of intravenous-fluid and vasopressor-dose combinations. & A learned GRU clinical world model predicts the next physiological state ... & \cgood yes \\
+ECG-WM: A Physiology-Informed ECG World Model for Clinical ... & 5 & treatment/causal & Drug identity, dose, and protocol drawn from a clinically ... & ODE-regularized latent diffusion simulates post-intervention ECG trajectories conditioned on drug action. & \cgap no* \\
+LeJEPA + I-JEPA: A World-Model-Grounded Multi-Agent Framework for ... & outside & medical imaging & Prompt rewriting and report constraints are orchestration operations, not ... & No learned future-state transition is implemented; the released notebook labels LeJEPA ... & \cgood yes \\
+A cost-optimized medical digital twin framework for secure ... & outside & other medical & ILP, PATI-Greedy, and HybridQeGA assign each computing task to ... & No learned or mechanistic patient, workflow, or infrastructure state transition is ... & \cgap no* \\
+\bottomrule
+\end{tabularx}
+\vspace{2pt}
+\\{\scriptsize Code: {\color{mwmteal}\faCheck} paper-linked public artifact; {\color{mwmamber}\faAdjust} partial/related artifact; {\color{mwmgray}\faMinus} no verified public study code or not applicable.}
+\end{table*}

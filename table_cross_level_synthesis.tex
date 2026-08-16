@@ -1,0 +1,19 @@
+\begin{table*}[t]
+\caption{Cross-level evidence synthesis. Capability identifies the implemented task form; the remaining columns summarize what the reviewed literature supports and what must change before a stronger clinical interpretation is justified.}
+\label{tab:cross-level-synthesis}
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\textwidth}{@{}p{2.6cm}p{4.0cm}p{4.0cm}X@{}}
+\toprule
+\textbf{Level} & \textbf{Observed achievement} & \textbf{Main evidence gap} & \textbf{Next threshold} \\
+\midrule
+Level 1: state representation & Clinically useful image, EHR, physiological, and mechanistic state construction. & No directed transition; representation may encode nuisance or observation-process structure. & A calibrated future target supported by a stable, uncertainty-aware state. \\
+Level 2: future prediction & Longitudinal images, patient events, disease states, and physiological trajectories can be forecast. & Record prediction is often conflated with patient dynamics; long-horizon and external calibration are limited. & An executable action that enters the transition and changes an evaluated future. \\
+Level 3: action-conditioned simulation & Treatment, acquisition, surgical, and physiological actions can control simulated futures. & Conditioning may reproduce selection bias or superficial action correlations rather than intervention response. & An explicit alternative-outcome estimand with identification or structural support. \\
+Level 4: counterfactual reasoning & Causal sequence, survival, and mechanistic methods estimate outcomes under alternative interventions. & Both potential outcomes are unobserved; support, confounding, and individual-level uncertainty remain difficult. & Operational use of a validated model in action ranking or selection, with decision-error analysis. \\
+Level 5: planning and control & World models support treatment planning, policy evaluation, acquisition guidance, and simulator-mediated control. & Optimization amplifies transition bias, unsupported actions, and reward misspecification; prospective evidence is sparse. & Support-aware planning, calibrated abstention, external validation, and patient-relevant prospective evaluation. \\
+\bottomrule
+\end{tabularx}
+\end{table*}

@@ -1,0 +1,25 @@
+# LaTeX build artifacts (Overleaf regenerates these)
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+*.bbl
+*.blg
+*.nav
+*.snm
+main.pdf
+
+# superseded / unused figure sources (replaced by figure_audit/landscape/motivation)
+figure_sato.tex
+figure_levels.tex
+figure_taxonomy_matrix.tex
+figure_evidence_map.tex
+
+# raster previews (the .pdf vector versions are the ones compiled)
+figures/fig_audit.png
+figures/fig_landscape.png
+
+.DS_Store

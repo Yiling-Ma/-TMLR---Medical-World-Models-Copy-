@@ -1,0 +1,27 @@
+\section{Detailed Boundary Cases and Reviewer Checklist}
+\label{app:boundaries}
+
+\subsection{Boundary Cases}
+
+\paragraph{Time conditioning versus action conditioning.} MRI CEKWorld predicts contrast-enhancement appearance at a selected elapsed time \citep{Kong2026MRIContrastEnhancement}. The model implements a directed temporal transition and is therefore Level~2. Time is not an executable intervention, so the system does not reach Level~3 unless a contrast dose, agent, or acquisition action is exposed and validated.
+
+\paragraph{Care-process prediction versus patient simulation.} Foresight and related EHR generators predict longitudinal clinical events \citep{Kraljevi_2024Foresightgenerativepretrained,Waxler2025GenerativeMedicalEvent}. A medication or procedure emitted as the next event remains part of the predicted record. The model reaches Level~3 only when an external action can be set for the same history and the subsequent patient state is evaluated.
+
+\paragraph{Treatment conditioning versus treatment effect.} Treatment-aware tumor and longitudinal imaging models can reach Level~3 when treatment changes the generated future \citep{Yang2025MedicalWorldModel,Liu2025TreatmentawareDiffusion}. They reach Level~4 only when the comparison between alternatives is supported by an explicit estimand and identification, structural, trial, or sensitivity argument.
+
+\paragraph{Planning versus clinical actionability.} CLARITY, patient-dynamics agents, and model-based sepsis RL operationally use simulated trajectories for decisions and therefore exemplify Level~5 capability \citep{Ding2025CLARITYMedicalWorld,Wu2026AgentifyingPatientDynamics,Raghu2018ModelBasedReinforcement}. The label does not establish that the simulated action response is causal, that the reward is patient-centered, or that the policy is ready for clinical use.
+
+\paragraph{Embodied action versus outcome validity.} Surgical tool motion, probe movement, and acquisition rotation provide clear executable actions \citep{Sivakumar2026SWoMoNeuroSymbolic,Yue2025EchoWorldLearningMotion,Yang2025Xray2XrayWorldModel}. They satisfy the Level~3 task-form boundary when they alter the modeled future, but visual or control success does not substitute for physical safety or clinical outcome validation.
+
+\subsection{Checklist for Authors and Reviewers}
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{State:} What patient or environment state is represented, at what time scale, and which clinically important variables may be missing?
+\item \textbf{Action:} Can the input be deliberately set for the same pre-action state? Is it an executable intervention, acquisition, or control, or only time, context, or an observed care event?
+\item \textbf{Transition:} Where does the action enter, what variables can it affect, and is the model learned, mechanistic, or hybrid?
+\item \textbf{Outcome:} Is the target a future observation, surrogate, treatment response, control success, or patient-relevant endpoint? Does it match the stated use?
+\item \textbf{Validation:} Are horizon, support, uncertainty, external shift, causal assumptions, and decision consequences evaluated at the level required by the claim?
+\item \textbf{Capability language:} Does the manuscript distinguish representation, future prediction, action-conditioned simulation, counterfactual reasoning, and planning rather than using them interchangeably?
+\end{enumerate}
+
+\input{table_core_matrix.tex}

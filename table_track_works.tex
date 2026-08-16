@@ -1,0 +1,44 @@
+\begin{table*}[p]
+\caption{Representative works across six clinical applications. Capability, application, disease family, modality, task, and public resource status are independent fields; digital twin is treated as a system-form overlay.}
+\label{tab:track-works}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.02}
+\begin{tabularx}{\textwidth}{@{}p{3.45cm}ccp{2.45cm}p{1.9cm}Xp{1.1cm}@{}}
+\toprule
+\textbf{Representative work} & \textbf{Year} & \textbf{Level} & \textbf{Disease family} & \textbf{Modality} & \textbf{Evaluated task} & \textbf{Code} \\
+\midrule
+\multicolumn{7}{@{}l}{\textit{Medical imaging}} \\
+CheXWorld: Exploring Image World Modeling for Radiograph Representation ... & 2025 & 1 & general or multidisease & radiograph & representation & \cgood yes \\
+Xray2Xray: World Model from Chest X-rays with Volumetric ... & 2025 & 3 & general or multidisease & radiograph & action conditioned simulation & \cgap no* \\
+MRI Contrast Enhancement Kinetics World Model & 2026 & 2 & oncology & MRI & future observation synthesis & \cgood yes \\
+\addlinespace
+\multicolumn{7}{@{}l}{\textit{Longitudinal progression}} \\
+Forecasting individualized progression of Alzheimer's disease using structural ... & 2026 & 2 & neurologic disease & MRI & future observation synthesis & \cgap no* \\
+Treatment-aware Diffusion Probabilistic Model for Longitudinal MRI Generation ... & 2025 & 3 & oncology & MRI & treatment conditioned simulation & \cgap no* \\
+Explicit Temporal Embedding in Deep Generative Latent Models ... & 2023 & 2 & oncology & CT & future observation synthesis & \cgood yes \\
+\addlinespace
+\multicolumn{7}{@{}l}{\textit{EHR trajectories}} \\
+EHRWorld: A Patient-Centric Medical World Model for Long-Horizon ... & 2026 & 3 & general or multidisease & EHR & future forecasting & \cgap no* \\
+ChronoMedicalWorld: A Medical World Model for Learning Patient ... & 2026 & 3 & renal urologic disease & EHR & disease progression & \cgap no* \\
+The Patient is not a Moving Document: A ... & 2026 & 2 & oncology & EHR & future forecasting & \cgap no* \\
+\addlinespace
+\multicolumn{7}{@{}l}{\textit{Digital twins}} \\
+A Framework for the generation of digital twins ... & 2021 & 1 & not disease specific & MRI & representation & \cgap no* \\
+Development of Digital Twins to Optimize Trauma Surgery ... & 2021 & 5 & musculoskeletal disease & CT & planning decision support & \cgap no* \\
+A Novel Cloud-Based Framework for the Elderly Healthcare ... & 2019 & 3 & general or multidisease & wearable sensor & operations resource simulation & \cgap no* \\
+\addlinespace
+\multicolumn{7}{@{}l}{\textit{Treatment and causal modeling}} \\
+ECG-WM: A Physiology-Informed ECG World Model for Clinical ... & 2026 & 5 & cardiovascular disease & physiology & planning decision support & \cgap no* \\
+Learning to Treat Hypotensive Episodes in Sepsis Patients ... & 2021 & 4 & critical illness & EHR & treatment policy learning & \cgap no* \\
+auton-survival: an Open-Source Package for Regression, Counterfactual Estimation, ... & 2022 & 4 & oncology & demographics clinical attributes & treatment response & \cgood yes \\
+\addlinespace
+\multicolumn{7}{@{}l}{\textit{Surgery, robotics, and physiology}} \\
+SWoMo: Neuro-Symbolic World Model for Cataract Surgery Simulation & 2026 & 3 & ophthalmic disease & surgical video/robot & simulation training & \cgood yes \\
+EchoWorld: Learning Motion-Aware World Models for Echocardiography Probe ... & 2025 & 3 & not disease specific & US/echo & acquisition guidance & \cgood yes \\
+SAW: Toward a Surgical Action World Model via ... & 2026 & 3 & not disease specific & surgical video/robot & simulation training & \cgap no* \\
+\addlinespace
+\bottomrule
+\end{tabularx}
+\end{table*}

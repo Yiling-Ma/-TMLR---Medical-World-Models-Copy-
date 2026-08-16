@@ -1,0 +1,19 @@
+\begin{table}[t]
+\caption{Validation ladder for medical world-model claims. The rungs are evidence types rather than a score: the required rung depends on the intended use, and evidence at one rung does not substitute for causal identification or action support at another.}
+\label{tab:validation-pyramid}
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\linewidth}{@{}p{2.35cm}p{3.35cm}Xp{3.25cm}@{}}
+\toprule
+\textbf{Evidence rung} & \textbf{What it can establish} & \textbf{Minimum useful evidence} & \textbf{Typical overclaim} \\
+\midrule
+Internal retrospective & Performance on held-out observations from the same data regime. & Patient-level splits, leakage controls, horizon-specific error, and relevant static baselines. & Generation quality is treated as decision validity. \\
+External or multicenter & Robustness to site, scanner, coding, workflow, or population shift. & Prespecified external cohorts and subgroup-specific failure reporting. & One external mean score is treated as universal transportability. \\
+Expert or clinician review & Clinical coherence and recognizable failure modes. & Blinded, task-specific ratings with agreement and explicit rejection criteria. & Plausibility substitutes for outcome or causal evidence. \\
+Counterfactual or policy & Behavior under alternative actions within stated assumptions and support. & Explicit estimand, overlap diagnostics, sensitivity analysis, and trial-, simulator-, or semi-synthetic anchors. & Benchmark counterfactual accuracy is treated as patient-level truth. \\
+Prospective workflow or trial & Effect on a real process, decision, or patient-relevant endpoint. & Registered protocol, monitoring, predefined endpoints, and appropriate comparator. & Retrospective gains are assumed to transfer to deployment. \\
+\bottomrule
+\end{tabularx}
+\end{table}

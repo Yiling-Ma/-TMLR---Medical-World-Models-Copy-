@@ -1,0 +1,14 @@
+\section{Evidence Coding, Adjudication, and Uncertainty}
+\label{app:coding}
+
+For each study, coding records the modeled object, temporal target, action semantics, transition mechanism, outcome, counterfactual support, planning role, and highest reported validation setting. The clinical facets include primary application, disease family, organ system, modality, and evaluated task. Public code, model, and data status are recorded separately from scientific capability because availability can change and does not establish validity.
+
+A capability decision follows two stages. The existence gate first asks whether a clinically meaningful state and directed transition are implemented. The level decision then identifies the strongest task contract supported by the method and evaluation. Level~1 denotes state representation without directed transition; Level~2 denotes future prediction without a settable action; Level~3 requires a settable action that enters the transition and changes an evaluated future; Level~4 requires an explicit alternative-outcome identification or structural contract; and Level~5 requires operational use of a world model in action ranking, optimization, evaluation, or control. Ambiguity is retained in confidence and boundary notes rather than resolved from titles or self-description alone.
+
+The review distinguishes unavailable evidence from negative evidence. A component is coded as not publicly evidenced when the paper and linked official artifacts do not describe it clearly enough to inspect. This designation does not imply that the component is absent from private implementation. Quantitative summaries include only canonical works with sufficient evidence for a capability decision; contextual and unresolved records are reported separately.
+
+The manuscript uses Level~1--5 consistently. Legacy database values are transformed only at the display layer, so the naming change does not alter source records or quantitative results.
+
+\input{table_levels.tex}
+\input{table_tracks.tex}
+\input{table_validation_pyramid.tex}

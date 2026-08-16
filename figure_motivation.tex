@@ -1,0 +1,52 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  x=1cm,y=1cm,
+  flow/.style={-{Latex[length=2.0mm]},draw=mwmink!78,line width=0.8pt},
+  state/.style={circle,draw=mwmblue,line width=0.9pt,fill=mwmblue!7,minimum size=1.35cm,align=center,font=\scriptsize},
+  model/.style={rounded corners=2pt,draw=mwmink!65,fill=mwmlight!35,minimum width=1.35cm,minimum height=0.72cm,align=center,font=\scriptsize},
+  result/.style={rounded corners=2pt,draw=mwmblue!75,fill=white,minimum width=1.8cm,minimum height=0.72cm,align=center,font=\scriptsize},
+  action/.style={rounded corners=2pt,draw=mwmblue!75,fill=mwmblue!6,minimum width=2.25cm,minimum height=0.68cm,align=left,font=\scriptsize},
+]
+% Static prediction.
+\node[font=\bfseries\small,text=mwmink] at (2.35,4.55) {(a) Static prediction};
+\node[state] (snapshot) at (0.95,2.85) {\textcolor{mwmblue}{\faFileMedical}\\current $x_t$};
+\node[model] (predictor) at (2.65,2.85) {$h_\theta$};
+\node[result] (risk) at (4.35,2.85) {label / risk\\$\hat y_t$};
+\draw[flow] (snapshot) -- node[above,font=\scriptsize] {snapshot} (predictor);
+\draw[flow] (predictor) -- (risk);
+\node[align=center,font=\scriptsize,text=mwmgray] at (2.65,1.65)
+  {one observed state $\rightarrow$ one target\\association: $P(Y\mid X)$};
+
+% Divider.
+\draw[mwmlight,line width=0.9pt] (5.55,0.75) -- (5.55,4.55);
+
+% Action-conditioned rollout.
+\node[font=\bfseries\small,text=mwmink] at (9.75,4.55) {(b) Action-conditioned rollout};
+\node[state] (patient) at (6.75,2.85) {\textcolor{mwmblue}{\faUserInjured}\\state $s_t$};
+
+\node[action] (a1) at (9.0,3.75) {\textcolor{mwmblue}{\faPills}\quad $a_t^{(1)}$ treatment};
+\node[action] (a2) at (9.0,2.85) {\textcolor{mwmblue}{\faProcedures}\quad $a_t^{(2)}$ procedure};
+\node[action] (a3) at (9.0,1.95) {\textcolor{mwmblue}{\faStethoscope}\quad $a_t^{(3)}$ observe};
+
+\node[result] (f1) at (12.35,3.75) {future $s_{t+1}^{(1)}$\\\textcolor{mwmblue}{\faHeartbeat}};
+\node[result] (f2) at (12.35,2.85) {future $s_{t+1}^{(2)}$\\\textcolor{mwmblue}{\faHeartbeat}};
+\node[result] (f3) at (12.35,1.95) {future $s_{t+1}^{(3)}$\\\textcolor{mwmblue}{\faHeartbeat}};
+
+\draw[flow] (patient) -- (a1);
+\draw[flow] (patient) -- (a2);
+\draw[flow] (patient) -- (a3);
+\draw[flow] (a1) -- (f1);
+\draw[flow] (a2) -- (f2);
+\draw[flow] (a3) -- (f3);
+\node[font=\scriptsize,text=mwmgray] at (10.7,1.25)
+  {$s_{t+1}^{(k)}\sim p_\theta(\,\cdot\mid s_t,a_t^{(k)}\,)$};
+
+\node[rounded corners=2pt,draw=mwmamber!80,fill=mwmamber!8,
+      minimum width=7.05cm,minimum height=0.52cm,align=center,font=\scriptsize]
+  at (9.75,0.55)
+  {Action test: settable at inference \quad $\bullet$ \quad enters the transition \quad $\bullet$ \quad evaluated post-action future};
+\end{tikzpicture}
+\caption{The conceptual shift from static prediction to action-conditioned rollout. \textbf{(a)} A static model maps one observed state to a label or risk estimate. \textbf{(b)} A medical world model exposes a settable action, uses it in the transition, and produces an action-specific future that can be evaluated. The branches are schematic capability tests, not clinical forecasts or model outputs.}
+\label{fig:motivation}
+\end{figure}

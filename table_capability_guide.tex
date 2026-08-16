@@ -1,0 +1,19 @@
+\begin{table*}[t]
+\caption{Capability-first reading guide. The categories identify different task contracts rather than cumulative maturity. Clinical application and model architecture describe where and how a capability is implemented; SATO-V determines whether the evidence supports the corresponding claim.}
+\label{tab:capability-guide}
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\textwidth}{@{}p{2.35cm}p{2.55cm}p{3.15cm}p{3.0cm}X@{}}
+\toprule
+\textbf{Capability} & \textbf{Clinical question} & \textbf{Minimum implemented contract} & \textbf{Typical settings} & \textbf{Common claim error or evidence bottleneck} \\
+\midrule
+Level 1: state representation & What is the current state? & A clinically meaningful current-state encoder, reconstruction, or same-time predictor; no directed future target. & Imaging representation, current-state phenotyping, static physiological estimation. & Treating a strong encoder or realistic generator as a rollout model. \\
+Level 2: future prediction & What is likely to happen next? & A directed future state, observation, or event sequence predicted without a settable action entering the transition. & Longitudinal imaging, disease progression, EHR trajectories, physiological forecasting. & Treating time, stage, or predicted care-process tokens as interventions. \\
+Level 3: action-conditioned simulation & What future follows if action $a$ is set? & A settable action enters the transition and changes an evaluated post-action state, observation, or outcome. & Treatment response, acquisition control, surgery, physiology, workflow simulation. & Reading conditioning as causal effect despite confounding or weak action semantics. \\
+Level 4: counterfactual outcome reasoning & What would have happened to the same patient under another action? & Alternative-intervention outcomes with an explicit identification, structural, trial, or sensitivity contract. & Longitudinal treatment-effect estimation, survival, critical care, oncology. & Calling paired generations counterfactual without identifying the comparison. \\
+Level 5: model-based planning and control & Which action or policy should be selected? & A learned or mechanistic world model is operationally used to rank, optimize, evaluate, or control actions. & Treatment planning, model-based clinical RL, surgical control, acquisition guidance. & Treating policy output, simulator success, or offline reward as clinical actionability. \\
+\bottomrule
+\end{tabularx}
+\end{table*}
